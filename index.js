@@ -11,6 +11,11 @@ io.on('connection', function(socket){
 		//console.log('message:' + msg);
 		io.emit('chat message', msg);
 	});
+	io.emit('user connected', {for: 'everyone'});
+});
+
+io.on('disconnect', function(){
+	console.log('User disconnected...');
 });
 
 http.listen(3000, function(){
