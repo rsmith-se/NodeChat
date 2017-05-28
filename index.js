@@ -12,10 +12,10 @@ io.on('connection', function(socket){
 		io.emit('chat message', msg);
 	});
 	io.emit('user connected', {for: 'everyone'});
-});
 
-io.on('disconnect', function(){
-	console.log('User disconnected...');
+	socket.on('disconnect', function(){
+		io.emit('user disconnected', {for: 'everyone'});
+	});
 });
 
 http.listen(3000, function(){

@@ -34,6 +34,9 @@
 				socket.on('user connected', function(){
 					$('#messages').append($('<li>').text('User connected...'));
 				});
+				socket.on('user disconnected', function(){
+					$('#messages').append($('<li>').text('User disconnected...'));
+				});
 			});			
 		</script>
 	</body>
